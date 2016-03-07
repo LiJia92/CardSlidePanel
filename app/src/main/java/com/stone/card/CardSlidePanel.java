@@ -22,8 +22,8 @@ import java.util.List;
  */
 @SuppressLint({"HandlerLeak", "NewApi", "ClickableViewAccessibility"})
 public class CardSlidePanel extends ViewGroup {
-    private List<CardItemView> viewList = new ArrayList<CardItemView>(); // 存放的是每一层的view，从顶到底
-    private List<View> releasedViewList = new ArrayList<View>(); // 手指松开后存放的view列表
+    private List<CardItemView> viewList = new ArrayList<>(); // 存放的是每一层的view，从顶到底
+    private List<View> releasedViewList = new ArrayList<>(); // 手指松开后存放的view列表
 
     /* 拖拽工具类 */
     private final ViewDragHelper mDragHelper; // 这个跟原生的ViewDragHelper差不多，我仅仅只是修改了Interpolator
@@ -519,7 +519,7 @@ public class CardSlidePanel extends ViewGroup {
 
         int num = viewList.size();
         for (int i = 0; i < num; i++) {
-            CardItemView itemView = (CardItemView) viewList.get(i);
+            CardItemView itemView = viewList.get(i);
             itemView.fillData(dataList.get(i));
             itemView.setVisibility(View.VISIBLE);
         }
@@ -565,7 +565,7 @@ public class CardSlidePanel extends ViewGroup {
          *
          * @param index 最顶层显示的卡片的index
          */
-        public void onShow(int index);
+        void onShow(int index);
 
         /**
          * 卡片飞向两侧回调
@@ -573,7 +573,7 @@ public class CardSlidePanel extends ViewGroup {
          * @param index 飞向两侧的卡片数据index
          * @param type  飞向哪一侧{@link #VANISH_TYPE_LEFT}或{@link #VANISH_TYPE_RIGHT}
          */
-        public void onCardVanish(int index, int type);
+        void onCardVanish(int index, int type);
 
         /**
          * 卡片点击事件
@@ -581,6 +581,6 @@ public class CardSlidePanel extends ViewGroup {
          * @param cardImageView 卡片上的图片view
          * @param index         点击到的index
          */
-        public void onItemClick(View cardImageView, int index);
+        void onItemClick(View cardImageView, int index);
     }
 }

@@ -11,6 +11,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 
 /**
  * 卡片View项
+ *
  * @author xmuSistone
  */
 @SuppressLint("NewApi")
@@ -41,7 +42,7 @@ public class CardItemView extends LinearLayout {
     public void fillData(CardDataItem itemData) {
         ImageLoader.getInstance().displayImage(itemData.imagePath, imageView);
         userNameTv.setText(itemData.userName);
-        imageNumTv.setText(itemData.imageNum + "");
-        likeNumTv.setText(itemData.likeNum + "");
+        imageNumTv.setText(String.valueOf(itemData.imageNum));
+        likeNumTv.setText(String.valueOf(itemData.likeNum));
     }
 }

@@ -1,8 +1,5 @@
 package com.stone.card;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,6 +10,9 @@ import android.view.ViewGroup;
 
 import com.stone.card.CardSlidePanel.CardSwitchListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 卡片Fragment
  *
@@ -20,8 +20,6 @@ import com.stone.card.CardSlidePanel.CardSwitchListener;
  */
 @SuppressLint({"HandlerLeak", "NewApi", "InflateParams"})
 public class CardFragment extends Fragment {
-
-    private CardSwitchListener cardSwitchListener;
 
     private String imagePaths[] = {"assets://wall01.jpg",
             "assets://wall02.jpg", "assets://wall03.jpg",
@@ -40,7 +38,7 @@ public class CardFragment extends Fragment {
             "霍建华", "胡歌", "曾志伟", "吴孟达", "梁朝伟", "周星驰", "赵本山", "郭德纲", "周润发", "邓超",
             "王祖蓝", "王宝强", "黄晓明", "张卫健", "徐峥", "李亚鹏", "郑伊健"}; // 24个人名
 
-    private List<CardDataItem> dataList = new ArrayList<CardDataItem>();
+    private List<CardDataItem> dataList = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -53,7 +51,7 @@ public class CardFragment extends Fragment {
     private void initView(View rootView) {
         CardSlidePanel slidePanel = (CardSlidePanel) rootView
                 .findViewById(R.id.image_slide_panel);
-        cardSwitchListener = new CardSwitchListener() {
+        CardSwitchListener cardSwitchListener = new CardSwitchListener() {
 
             @Override
             public void onShow(int index) {
